@@ -21,7 +21,7 @@ class BillItem {
 
   final String productName;
 
-  final int quantity;
+  final double quantity;
 
   /// pcs / kg / g / litre / dozen etc.
   final String unit;
@@ -65,7 +65,7 @@ class BillItem {
       billId: map['bill_id'] as int,
       productId: map['product_id'] as int?,
       productName: map['product_name'] as String,
-      quantity: map['quantity'] as int,
+      quantity: (map['quantity'] as num).toDouble(),
       unit: map['unit'] ?? 'pcs',
       unitPrice: (map['unit_price'] as num).toDouble(),
       totalPrice: (map['total_price'] as num).toDouble(),
@@ -78,7 +78,7 @@ class BillItem {
     int? billId,
     int? productId,
     String? productName,
-    int? quantity,
+    double? quantity,
     String? unit,
     double? unitPrice,
     double? totalPrice,

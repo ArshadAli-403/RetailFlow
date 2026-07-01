@@ -157,7 +157,7 @@ class _BillingScreenState extends State<BillingScreen> {
           const SizedBox(height: 12),
           TextField(
             controller: qtyController,
-            keyboardType: TextInputType.number,
+            keyboardType: const TextInputType.numberWithOptions(decimal: true),
             decoration: const InputDecoration(
               labelText: 'Quantity',
               prefixIcon: Icon(Icons.production_quantity_limits),
@@ -169,7 +169,7 @@ class _BillingScreenState extends State<BillingScreen> {
             onPressed: () {
               final name = nameController.text.trim();
               final price = double.tryParse(priceController.text) ?? 0.0;
-              final qty = int.tryParse(qtyController.text) ?? 1;
+              final qty = double.tryParse(qtyController.text) ?? 1;
 
               if (name.isEmpty || price <= 0 || qty <= 0) {
                 AppSnackBar.showError(context, 'Please enter valid product details');

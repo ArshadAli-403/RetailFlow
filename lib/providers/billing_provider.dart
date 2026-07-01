@@ -53,8 +53,8 @@ class BillingProvider extends ChangeNotifier {
   double get totalExtraCharges => 
       _additionalChargesList.fold(0.0, (sum, item) => sum + item.amount);
 
-  int get totalItemCount =>
-      _cartItems.fold(0, (sum, item) => sum + item.quantity);
+  double get totalItemCount =>
+      _cartItems.fold(0.0, (sum, item) => sum + item.quantity);
   String get productDescription => _productDescription;
   double get paidAmount => _paidAmount;
   
@@ -133,7 +133,7 @@ class BillingProvider extends ChangeNotifier {
   void addManualProductToCart({
     required String name,
     required double price,
-    required int quantity,
+    required double quantity,
     required String unit,
   }) {
     if (name.trim().isEmpty || price <= 0 || quantity <= 0) return;

@@ -5,7 +5,7 @@ enum ReportPeriod { daily, weekly, yearly }
 
 class ReportMetrics {
   final int totalInvoices;
-  final int totalItemsSold;
+  final double totalItemsSold;
   final double expectedDrawerCash; // Total Grand Totals
   final double totalCashReceived;  // Total Paid Amounts
   final Map<String, double> salesOverTime; // For Chart Mapping (Date -> Sales Amount)
@@ -65,7 +65,7 @@ class ReportsProvider extends ChangeNotifier {
       }).toList();
 
       // 3. Aggregate Core Audit Metrics
-      int itemsCount = 0;
+      double itemsCount = 0.0;
       double expectedCash = 0.0;
       double cashReceived = 0.0;
       Map<String, double> timeSeriesData = {};
